@@ -1,0 +1,106 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>用户登录示例</title>  
+    <style>  
+        body {  
+            margin: 0;  
+            padding: 0;  
+            font-family: Arial, sans-serif;  
+            background-image: url('jq.jpg'); /* 替换为你的背景图片URL */  
+            background-repeat: no-repeat;  
+            background-size: cover;  
+            display: flex;  
+            justify-content: center;  
+            align-items: center;  
+            height: 100vh;  
+            overflow: hidden; /* 防止滚动条 */  
+        }  
+  
+        .login-wrapper {  
+            text-align: center;  
+            display: flex;  
+            flex-direction: column;  
+            align-items: center;  
+        }  
+  
+        #login-container {  
+            background-color: rgba(255, 255, 255, 0.8);  
+            padding: 20px;  
+            border-radius: 10px;  
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);  
+            /* 不需要为login-container设置垂直居中，因为它在.login-wrapper中 */  
+        }  
+  
+        label {  
+            display: block;  
+            margin-bottom: 10px;  
+        }  
+  
+        input[type="text"], input[type="password"] {  
+            width: 200px;  
+            padding: 10px;  
+            margin-bottom: 15px;  
+            border-radius: 5px;  
+            border: 1px solid #ccc;  
+        }  
+  
+        #login-btn {  
+            padding: 10px 20px;  
+            background-color: #4CAF50;  
+            color: white;  
+            border: none;  
+            border-radius: 5px;  
+            cursor: pointer;  
+            margin-top: 10px; /* 为登录按钮添加上边距 */  
+        }  
+  
+        #login-btn:hover {  
+            background-color: #45a049;  
+        }  
+    </style>  
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  
+</head>  
+<body>  
+  
+<div class="login-wrapper">  
+    <div id="login-container">  
+        <label for="username">用户名:</label>  
+        <input type="text" id="username" placeholder="用户名">  
+          
+        <label for="password">密码:</label>  
+        <input type="password" id="password" placeholder="密码">  
+    </div>  
+    <button id="login-btn">登录</button>  
+</div>  
+  
+<script>  
+$(document).ready(function() {  
+    $('#login-btn').click(function() {  
+        var username = $('#username').val();  
+        var password = $('#password').val();  
+  
+        // 假设格式检查规则：用户名至少5个字符，密码至少8个字符  
+        if (username.length < 5) {  
+            alert('用户名至少需要5个字符');  
+            return;  
+        }  
+  
+        if (password.length < 8) {  
+            alert('密码至少需要8个字符');  
+            return;  
+        }  
+  
+        // 如果格式检查通过，这里可以添加登录逻辑（例如发送AJAX请求到服务器）  
+        alert('登录成功！');  
+        // 清除输入框内容（可选）  
+        $('#username').val('');  
+        $('#password').val('');  
+    });  
+});  
+</script>  
+  
+</body>  
+</html>
